@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>String Tool</title>
+	<link href="index.css" rel="stylesheet">
+</head>
+<body>
+<textarea id="tinput" onchange="parse()"></textarea>
+<textarea id="toutput"></textarea>
+
+<script>
+var rst = "";
+var frst = "";
+function parse(){
+	var regex = new RegExp("[^A-Za-z0-9\\n\\s\(\)\[\\]\\\\/{}\"\'`!?:;+_\\-=~\^@%*.,]", "g");
+	while (rst = regex.exec(document.getElementById("tinput").value)) {
+console.log(rst);
+		if (frst.indexOf(rst) == -1) frst = frst + rst;
+		document.getElementById("toutput").value = frst;
+	}
+}
+</script>
+</body>
+</html>
